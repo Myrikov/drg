@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOWNCIDE</title>
+</head>
+<body>
+
+<script>
+    var imagePaths = [
+        'https://cdn.discordapp.com/attachments/1112742678422102066/1177953722366709890/image.png?ex=657461e4&is=6561ece4&hm=2a9c2b7a50c8a6ce0675dd4953c372d961f77b41f3ac916dbf46a0383b2ee8f1&',
+        'https://cdn.discordapp.com/attachments/1112742678422102066/1177954234172461166/20231015153818_1.jpg?ex=6574625e&is=6561ed5e&hm=7d6d36d926c2eea7154d002746b355c893ac3322e421c6f82d27104aae6962ef&',
+		'https://cdn.discordapp.com/attachments/1112742678422102066/1177954287901495417/20231021153941_1.jpg?ex=6574626b&is=6561ed6b&hm=6d077da65f8b33661227fd19c497dcb81395920a2d909442b553f4aa6edb8d50&',
+		'https://cdn.discordapp.com/attachments/1112742678422102066/1177954924043178054/20230921212106_1.jpg?ex=65746303&is=6561ee03&hm=dc751374e5cb1b7562a332bb83c63e1637acb84772d1968c3f81104677bd6f47&',
+    ];
+
+    var currentImageIndex = 0;
+    var imageElement = document.createElement('img');
+    imageElement.id = 'slideshow';
+    document.body.appendChild(imageElement);
+
+    function changeImage() {
+        imageElement.src = imagePaths[currentImageIndex];
+
+        currentImageIndex = (currentImageIndex + 1) % imagePaths.length;
+    }
+
+    setInterval(changeImage, 5000);
+
+    changeImage();
+
+    var audioElement = document.createElement('audio');
+    audioElement.controls = true;
+    audioElement.loop = true;
+    audioElement.autoplay = true;
+
+    var sourceElement = document.createElement('source');
+    sourceElement.src = 'https://cdn.discordapp.com/attachments/1112742678422102066/1177953146287439892/Da_Octopusss_-_Banlieue_13_Musique_Du_Film_360p.mp4?ex=6574615b&is=6561ec5b&hm=ded9ed119e0694b3121b50804f212c694d761547a361be9899f3a764794ea9bf&';
+    sourceElement.type = 'audio/mp3';
+
+    audioElement.appendChild(sourceElement);
+    document.body.appendChild(audioElement);
+</script>
+
+</body>
+</html>
